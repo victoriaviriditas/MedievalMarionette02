@@ -53,7 +53,7 @@ const overlay = document.getElementById('overlay');
 const beginBtn = document.getElementById('begin');
 const errEl = document.getElementById('err');
 const hint = document.getElementById('hint');
-const modeBtn = document.getElementById('mode-btn');
+const modeBtn = document.getElementById('mode-toggle');
 const modeLabel = document.getElementById('mode-label');
 const panelEl = document.getElementById('panel');
 
