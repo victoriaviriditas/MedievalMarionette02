@@ -430,7 +430,7 @@ function updateLegend() {
   let html = '';
   if (knightOnly || both) {
     html += `
-      <h3>${both ? 'The Knight (right hand)' : 'The Knight'}</h3>
+      <h3>${both ? 'The Knight (left hand)' : 'The Knight'}</h3>
       <ul>
         <li><span>index</span><span>head &amp; helm</span></li>
         <li><span>middle</span><span>crop arm</span></li>
@@ -441,7 +441,7 @@ function updateLegend() {
   }
   if (squireOnly || both) {
     html += `
-      <h3 ${both ? 'class="second"' : ''}>${both ? 'The Squire (left hand)' : 'The Squire'}</h3>
+      <h3 ${both ? 'class="second"' : ''}>${both ? 'The Squire (right hand)' : 'The Squire'}</h3>
       <ul>
         <li><span>index</span><span>head &amp; curls</span></li>
         <li><span>middle</span><span>right arm</span></li>
