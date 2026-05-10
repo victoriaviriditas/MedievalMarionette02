@@ -1,0 +1,447 @@
+/* ============================================================
+   THE MARIONETTE — STYLES
+   ============================================================
+   This file controls how everything LOOKS — colours, fonts,
+   layout, the decorative frame, and so on.
+
+   If you are new to coding, the easiest things to change are
+   the colours just below, in the :root section.
+   ============================================================ */
+
+
+/* ---- COLOURS ----
+   These are the colours used everywhere in the design. Change
+   one value here and it updates throughout the whole page.
+   The codes are "hex" colours — see coolors.co to pick new ones. */
+
+:root {
+  --ink: #1a1410;             /* dark colour: outlines, knight's body */
+  --ink-soft: #2d231c;        /* a slightly softer dark               */
+  --parchment: #f4ecd8;       /* page background — the "parchment"    */
+  --parchment-dark: #e8dcc0;  /* slightly darker parchment            */
+  --parchment-shadow: #d4c4a0;
+  --crimson: #6b1e1e;         /* small accent (button hover)          */
+  --gilt: #8a6f2c;             /* small accent (gilded touches)        */
+}
+
+
+/* ---- BASIC PAGE SETUP ---- */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--parchment);
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--ink);
+}
+
+body {
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(26,20,16,0.08) 70%, rgba(26,20,16,0.18) 100%),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(26,20,16,0.012) 2px, rgba(26,20,16,0.012) 3px),
+    var(--parchment);
+  position: relative;
+}
+
+/* parchment-grain texture across the whole page */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(139,111,44,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(107,30,30,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(26,20,16,0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* ---- DECORATIVE FRAME (the borders around the page) ---- */
+
+.frame {
+  position: fixed;
+  inset: 16px;
+  border: 1.5px solid var(--ink);
+  z-index: 2;
+  pointer-events: none;
+}
+.frame::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 0.5px solid var(--ink);
+}
+.frame::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 0.5px solid var(--ink);
+  opacity: 0.4;
+}
+
+
+/* ---- CORNER ORNAMENTS (the gothic flourishes in each corner) ---- */
+
+.corner {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  z-index: 3;
+  pointer-events: none;
+  color: var(--ink);
+}
+.corner.tl { top: 24px; left: 24px; }
+.corner.tr { top: 24px; right: 24px; transform: scaleX(-1); }
+.corner.bl { bottom: 24px; left: 24px; transform: scaleY(-1); }
+.corner.br { bottom: 24px; right: 24px; transform: scale(-1,-1); }
+
+
+/* ---- THE STAGE (where the knight stands) ---- */
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+
+/* ---- TITLE AT THE TOP OF THE PAGE ---- */
+
+.title-block {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+.title {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin: 4px 0;
+}
+.subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+  letter-spacing: 0.25em;
+  text-transform: lowercase;
+  margin-top: 6px;
+}
+.rule {
+  width: 280px;
+  height: 1px;
+  background: var(--ink);
+  margin: 8px auto;
+  position: relative;
+}
+.rule::before {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--parchment);
+  padding: 0 8px;
+  font-size: 8px;
+  color: var(--ink);
+}
+
+
+/* ---- THE PUPPET SVG (fills the stage) ---- */
+
+#puppet-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+
+/* ---- WEBCAM PREVIEW (small box bottom-right) ---- */
+
+.cam-preview {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  width: 180px;
+  height: 135px;
+  z-index: 20;
+  border: 1.5px solid var(--ink);
+  background: var(--ink);
+  overflow: hidden;
+}
+.cam-preview::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 0.5px solid var(--ink);
+  pointer-events: none;
+  z-index: 22;
+}
+.cam-preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);  /* mirror, so it feels natural */
+}
+.cam-preview canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+}
+.cam-label {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  font-style: italic;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  text-transform: lowercase;
+}
+
+
+/* ---- LEGEND PANEL (bottom-left, lists which finger does what) ---- */
+
+.panel {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  z-index: 20;
+  max-width: 320px;
+  background: var(--parchment);
+  border: 1px solid var(--ink);
+  padding: 16px 20px;
+  font-family: 'Cormorant Garamond', serif;
+}
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border: 0.5px solid var(--ink);
+  pointer-events: none;
+}
+.panel h3 {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.panel ul {
+  list-style: none;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.panel li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px dotted var(--ink-soft);
+  padding: 2px 0;
+}
+.panel li:last-child { border: none; }
+.panel li span:first-child { font-style: italic; color: var(--ink-soft); }
+.panel li span:last-child { font-weight: 500; }
+.panel-note {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 0.5px dotted var(--ink-soft);
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+.panel-note:empty { display: none; }
+
+
+/* ---- MODE TOGGLE (cycle between Knight, Squire, Both) ---- */
+
+.mode-toggle {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 20;
+  background: var(--parchment);
+  border: 1px solid var(--ink);
+  padding: 12px 22px;
+  cursor: pointer;
+  font-family: 'UnifrakturMaguntia', serif;
+  color: var(--ink);
+  text-align: center;
+  min-width: 160px;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+.mode-toggle::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border: 0.5px solid var(--ink);
+  pointer-events: none;
+}
+.mode-toggle:hover {
+  background: var(--parchment-dark);
+}
+.mode-toggle:active {
+  transform: translateY(1px);
+}
+.mode-toggle .mode-label {
+  display: block;
+  font-size: 18px;
+  line-height: 1.1;
+}
+.mode-toggle .mode-hint {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: lowercase;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+
+/* ---- START SCREEN (the overlay shown before the puppet appears) ---- */
+
+.start-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(244,236,216,0.97);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
+}
+.start-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.start-card {
+  text-align: center;
+  max-width: 520px;
+  padding: 50px 60px;
+  border: 1.5px solid var(--ink);
+  background: var(--parchment);
+  position: relative;
+}
+.start-card::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 0.5px solid var(--ink);
+  pointer-events: none;
+}
+.start-card h1 {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.start-card .flourish {
+  font-size: 14px;
+  letter-spacing: 0.4em;
+  text-transform: lowercase;
+  font-style: italic;
+  margin: 12px 0 24px;
+  color: var(--ink-soft);
+}
+.start-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  color: var(--ink-soft);
+  text-align: left;
+}
+.start-card p .drop {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 32px;
+  float: left;
+  line-height: 0.9;
+  margin: 4px 8px 0 0;
+  color: var(--crimson);
+}
+
+.begin-btn {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 22px;
+  background: var(--ink);
+  color: var(--parchment);
+  border: none;
+  padding: 14px 40px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.begin-btn:hover {
+  background: var(--crimson);
+  transform: translateY(-1px);
+}
+.begin-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.begin-btn::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 1px solid var(--ink);
+  pointer-events: none;
+}
+
+.err {
+  color: var(--crimson);
+  font-style: italic;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+
+/* ---- HINT TEXT (shown when no hand is detected) ---- */
+
+.hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink-soft);
+  z-index: 6;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.hint.show { opacity: 1; }
+
+
+/* ---- MOBILE-FRIENDLY ADJUSTMENTS ---- */
+
+@media (max-width: 768px) {
+  .panel { display: none; }
+  .cam-preview { width: 120px; height: 90px; bottom: 30px; right: 30px; }
+  .title-block { top: 30px; }
+  .mode-toggle { top: 30px; right: 30px; padding: 8px 14px; min-width: 120px; }
+  .mode-toggle .mode-label { font-size: 14px; }
+  .mode-toggle .mode-hint { font-size: 9px; }
+}
