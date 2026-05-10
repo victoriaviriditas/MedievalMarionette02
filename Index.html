@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Marionette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- decorative manuscript frame -->
+  <div class="frame"></div>
+
+  <!-- corner ornaments (gothic flourishes) -->
+  <svg class="corner tl" viewBox="0 0 60 60">
+    <g fill="none" stroke="currentColor" stroke-width="0.8">
+      <path d="M0,30 Q0,0 30,0" />
+      <path d="M0,20 Q0,8 12,4 Q20,2 24,8" />
+      <path d="M8,8 Q14,14 8,20 Q14,16 20,20 Q16,14 20,8 Q14,12 8,8 Z" fill="currentColor"/>
+      <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+      <path d="M0,40 L0,30 M40,0 L30,0"/>
+    </g>
+  </svg>
+  <svg class="corner tr" viewBox="0 0 60 60">
+    <g fill="none" stroke="currentColor" stroke-width="0.8">
+      <path d="M0,30 Q0,0 30,0" />
+      <path d="M0,20 Q0,8 12,4 Q20,2 24,8" />
+      <path d="M8,8 Q14,14 8,20 Q14,16 20,20 Q16,14 20,8 Q14,12 8,8 Z" fill="currentColor"/>
+      <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+      <path d="M0,40 L0,30 M40,0 L30,0"/>
+    </g>
+  </svg>
+  <svg class="corner bl" viewBox="0 0 60 60">
+    <g fill="none" stroke="currentColor" stroke-width="0.8">
+      <path d="M0,30 Q0,0 30,0" />
+      <path d="M0,20 Q0,8 12,4 Q20,2 24,8" />
+      <path d="M8,8 Q14,14 8,20 Q14,16 20,20 Q16,14 20,8 Q14,12 8,8 Z" fill="currentColor"/>
+      <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+      <path d="M0,40 L0,30 M40,0 L30,0"/>
+    </g>
+  </svg>
+  <svg class="corner br" viewBox="0 0 60 60">
+    <g fill="none" stroke="currentColor" stroke-width="0.8">
+      <path d="M0,30 Q0,0 30,0" />
+      <path d="M0,20 Q0,8 12,4 Q20,2 24,8" />
+      <path d="M8,8 Q14,14 8,20 Q14,16 20,20 Q16,14 20,8 Q14,12 8,8 Z" fill="currentColor"/>
+      <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+      <path d="M0,40 L0,30 M40,0 L30,0"/>
+    </g>
+  </svg>
+
+  <div class="stage">
+
+    <!-- title at the top of the page -->
+    <div class="title-block">
+      <div class="title">The Marionette</div>
+      <div class="rule"></div>
+      <div class="subtitle">a manual of gestures &nbsp;·&nbsp; anno mmxxvi</div>
+    </div>
+
+    <!-- the knight is drawn into this svg by script.js -->
+    <svg id="puppet-svg" preserveAspectRatio="xMidYMid meet"></svg>
+
+    <!-- shown when no hand is detected -->
+    <div class="hint" id="hint">Raise thy hand before the glass…</div>
+
+    <!-- mode toggle: cycle between Knight, Squire, Both -->
+    <button class="mode-toggle" id="mode-toggle" type="button" aria-label="Change pilgrim">
+      <span class="mode-label" id="mode-label">The Knight</span>
+      <span class="mode-hint">tap to change</span>
+    </button>
+
+    <!-- legend showing which finger controls what -->
+    <div class="panel" id="panel">
+      <h3 id="panel-title">Of Strings &amp; Fingers</h3>
+      <ul id="panel-list">
+        <li><span>index</span><span>head</span></li>
+        <li><span>middle</span><span>right arm</span></li>
+        <li><span>ring</span><span>left arm</span></li>
+        <li><span>pinky</span><span>spine &amp; legs</span></li>
+      </ul>
+      <div class="panel-note" id="panel-note"></div>
+    </div>
+
+    <!-- the small webcam preview in the corner -->
+    <div class="cam-preview">
+      <video id="video" autoplay playsinline muted></video>
+      <canvas id="cam-canvas"></canvas>
+      <div class="cam-label">the looking-glass</div>
+    </div>
+  </div>
+
+  <!-- the start screen, shown until the user clicks "Summon" -->
+  <div class="start-overlay" id="overlay">
+    <div class="start-card">
+      <h1>The Marionette</h1>
+      <div class="flourish">✦ &nbsp; an interactive curiosity &nbsp; ✦</div>
+      <p>
+        <span class="drop">B</span>ehold two pilgrims of olde — the Knight and his Squire —
+        suspended upon four invisible strings apiece. Tied to thy fingertips by the
+        magick of the looking-glass, they shall walk, sway, and bow at thy command.
+        Permit the glass to see thee, and raise thy hand into view.
+      </p>
+      <button class="begin-btn" id="begin">Summon the Knight</button>
+      <div class="err" id="err"></div>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
