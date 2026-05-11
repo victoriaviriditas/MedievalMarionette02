@@ -2,7 +2,7 @@
 
 > *An interactive medieval puppet, controlled by your fingertips through your webcam.*
 
-A small experiment in computer vision and physics: raise your hand before your webcam, and a knight rendered in the style of an illuminated manuscript will dance from invisible strings tied to your fingers. Built for an upcoming publication.
+Hello from Victoria's side of GitHub! Here is a small experiment in computer vision and physics: raise your hand before your webcam, and a knight rendered in the style of an illuminated manuscript will dance from invisible strings tied to your fingers. The following document is here to help you understand, edit, and try your own Medieval Marionette. 
 
 ![A medieval knight puppet hanging from four strings attached to fingertips](preview.png)
 
