@@ -201,5 +201,4 @@ No data ever leaves your computer. The webcam feed is processed locally and disc
 MIT. Take it, change it, make your own puppet show. Attribution is appreciated but not required.
 
 ---
-
-*Made with care for the publication. May your strings never tangle.*
+Much medieval love from Victoria!!!!!
