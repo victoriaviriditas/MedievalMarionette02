@@ -1,4 +1,4 @@
-# 🛡️ The Marionette
+Medieval Marionette
 
 > *An interactive medieval puppet, controlled by your fingertips through your webcam.*
 
@@ -6,7 +6,7 @@ Hello from Victoria's side of GitHub! Here is a small experiment in computer vis
 
 ---
 
-## ⚔️ How it works
+## How it works
 
 Four of your fingertips become the puppet's strings:
 
@@ -21,7 +21,7 @@ The thumb stays free, as a marionettist's resting finger should. Move your hand 
 
 ---
 
-## 🪄 Try it on your own computer
+## Try it on your own computer
 
 If you have never written a line of code in your life: welcome. This guide assumes nothing. Follow the steps in order and you will have your own copy of the marionette running in about ten minutes.
 
@@ -40,7 +40,7 @@ On your forked repository's page, click the green **Code** button, then **Downlo
 **Step 4. Open `index.html`.**
 Double-click `index.html`. It should open in your web browser. Click *Summon the Knight*, allow camera access, and raise your hand. That is all.
 
-> 💡 If your browser blocks the camera, try opening the file in Chrome or Firefox, and make sure you allow camera permission when prompted. Some browsers (Safari) require the file to be served from a local server — see *Tier 3* for how to do that.
+> If your browser blocks the camera, try opening the file in Chrome or Firefox, and make sure you allow camera permission when prompted. Some browsers (Safari) require the file to be served from a local server — see *Tier 3* for how to do that.
 
 ---
 
@@ -183,7 +183,7 @@ npx serve
 
 ---
 
-## 🧰 Built with
+## Built with
 
 - [MediaPipe Hands](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker) — Google's hand-tracking model, running entirely in your browser
 - Verlet integration physics — written from scratch, no library
