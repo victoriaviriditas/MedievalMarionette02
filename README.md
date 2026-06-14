@@ -152,7 +152,7 @@ The same applies to the shield (look for `<path d="M -18,-5 ..."`), the sword, a
 
 ---
 
-## 🌐 Sharing your version online
+## Sharing your version online
 
 Once your knight looks the way you want, you can publish your fork as a website that anyone in the world can visit — for free.
 
@@ -165,7 +165,7 @@ Share that link. Their hand, your knight.
 
 ---
 
-## 🛠️ Running with a local server (optional, if your browser blocks the file)
+## Running with a local server (optional, if your browser blocks the file)
 
 Some browsers refuse to open the camera from a `file://` URL. If yours does, you can run a tiny local server:
 
@@ -194,7 +194,7 @@ No data ever leaves your computer. The webcam feed is processed locally and disc
 
 ---
 
-## 📜 License
+## License
 
 MIT. Take it, change it, make your own puppet show. Attribution is appreciated but not required.
 
