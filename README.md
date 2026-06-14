@@ -186,7 +186,7 @@ npx serve
 ## Built with
 
 - [MediaPipe Hands](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker) — Google's hand-tracking model, running entirely in your browser
-- Verlet integration physics — written from scratch, no library
+- Verlet integration physics
 - SVG — the knight, the strings, the ornaments
 - Cormorant Garamond & UnifrakturMaguntia — the fonts that make it look medieval
 
